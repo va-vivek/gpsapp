@@ -1,0 +1,240 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:pt="http://xmlns.jcp.org/jsf/passthrough">
+    <h:head>
+        <title>Facelet Title</title>
+        <link href='https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,700' rel='stylesheet' type='text/css'></link>
+       <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css"></link>
+       
+       <script src="https://cdnjs.cloudflare.com/ajax/libs/prefixfree/1.0.7/prefixfree.min.js"></script>
+       <style>
+           #example{
+               border-collapse: collapse;
+               width:75%;
+               margin-left: 300px;
+               margin-top: 1px;
+            
+           }
+
+            th, td{
+                text-align: left;
+                text-transform: capitalize;
+                padding: 8px;
+                background-color: black;
+               
+                  
+            }
+          
+
+            
+
+            th {
+                background-color: black;
+                color: red;
+            }
+            img{
+                margin-left: 401px;
+                margin-top: -60px;
+            }
+            .right1{
+                margin-left: 500px;
+                margin-top: 200px;
+            }
+            .tabsize{
+                height: 30px;
+                width: 30px;
+            }
+
+
+           </style>
+    </h:head>
+    <h:body> 
+        <h:outputStylesheet library="css" name="style.css"  />
+        <h:outputScript library="js" name="common.js" />
+
+        <div class="right">
+        <h:form>        
+            <p id="f1">Welcome #{login.user}</p>
+            <h:commandLink action="#{login.logout}" value="Logout"></h:commandLink><br></br>   
+        </h:form>
+            </div>
+        <img src="resources/images/techm.png" style="width:160px;height:50px;" align="right"/>
+         <header class="header" role="banner">
+             <h1 class="logo">
+                 <a href="#">Track <span>Vehicle</span></a>
+             </h1>
+                  <div class="nav-wrap">
+                  <nav class="main-nav" role="navigation">
+                            <ul class="unstyled list-hover-slide">
+                                   <li><a href="#" onclick="demoDisplay();hidetable();hideblock()">Vehicle register</a></li>
+                                   <li><a href="#" onclick="demoDisplay();hideblock();hidetable()">Add routes</a></li>
+                                   <li><a href="#" onclick="demoDisplay();hideblock();hidetable()">City</a></li>
+                                   <li><a href="#" onclick="demoDisplay();hideblock();hidetable()">Journey</a></li>
+                                   <li><a href="#" onclick="openCity(event,'Journey1');hide();hidetable()">Track Vehicle</a></li>
+                            </ul>
+                  </nav>
+         </div>
+        </header>
+        <div style = "display:none" id="myP1" class="right1">
+         <marquee>  <h1>This content is disabled
+       </h1></marquee>
+       </div>
+        <div id="Journey1" class="tabcontent">
+            <!--<h:form>
+                <h3>Tracking</h3>
+                  
+                <ol class="progtrckr" data-progtrckr-steps="5">
+                    <li class="progtrckr-done">Route1</li>
+                    <li class="progtrckr-done">Route2</li>
+                    <li class="progtrckr-done">Route3</li>
+                    <li class="progtrckr-todo">Route4</li> 
+                </ol>          
+            </h:form>-->
+            <center>
+                <h:form>
+
+                    <div class="right-div">
+                        <h3>Apply Filter</h3>
+                        <table>
+                            <tr>
+                                <td><label><b>Vehicle no</b></label></td>
+                                <td><h:inputText value="#{track_journey.vehicle_no}" pt:placeholder="Enter Vehicle No" /></td>
+                            </tr>
+                            <tr>
+                                <td><label><b>Journey Start</b></label></td>
+                                <td><h:inputText value="#{track_journey.start_date}" pt:placeholder="DD-MM-YYYY" /></td>
+                            </tr>
+                            <tr>
+                                <td><label><b>Journey End</b></label></td>
+                                <td><h:inputText value="#{track_journey.end_date}" pt:placeholder="DD-MM-YYYY" /></td>
+                            </tr>
+                        </table>
+
+                        <div class="clearfix">
+                            <h:commandButton value="Submit" action="#{track_journey.add()}" style="padding: 7px 5px; border-radius: 15px; margin: 8px 0;width: 30%;margin-left: 100px;
+                      margin-top: 50px;background-color: grey;color: white;border:none;cursor:pointer;"/>
+                        </div>
+                    </div>
+                </h:form> 
+            </center>
+
+        </div>
+
+       
+        <h:dataTable id="example" value="#{track_journey.list}" var="item" border="1">
+
+            <f:facet name="header">
+                <h:outputText value="ALL Journey List"  styleClass='comments'/>
+            </f:facet> 
+
+            <h:column>
+                <f:facet name="header">
+                    <h:outputText value="Vehicle Type" />
+                </f:facet> 
+                <h:outputText value="#{item.vehicle_type}" ></h:outputText>
+            </h:column>
+
+            <h:column>
+                <f:facet name="header">
+                    <h:outputText value="Vehicle No"/>
+                </f:facet> 
+                <h:outputText  value="#{item.vehicle_no}"></h:outputText>
+            </h:column>
+  
+            <h:column>
+                <f:facet name="header">
+                    <h:outputText  value="Route 1"/>
+                </f:facet> 
+                <h:outputText value="#{item.route1}"></h:outputText>
+            </h:column>
+  
+
+            <h:column>
+                <f:facet name="header">
+                    <h:outputText value="Route 2"/>
+                </f:facet> 
+                <h:outputText value="#{item.route2}"></h:outputText>
+            </h:column>
+
+            <h:column >
+                <f:facet name="header">
+                    <h:outputText value="Route 3"/>
+                </f:facet> 
+                <h:outputText  value="#{item.route3}"></h:outputText>
+            </h:column>
+
+            <h:column>
+                <f:facet name="header">
+                    <h:outputText value="Route 4"/>
+                </f:facet> 
+                <h:outputText  value="#{item.route4}"></h:outputText>
+            </h:column>
+
+            <h:column>
+                <f:facet name="header">
+                    <h:outputText value="Total Distance Covered"/>
+                </f:facet> 
+                <h:outputText value="#{item.tdc}"></h:outputText>
+            </h:column>
+
+            <h:column>
+                <f:facet name="header" >
+                    <h:outputText value="Total Distance"/>
+                </f:facet> 
+                <h:outputText value="#{item.td}"></h:outputText>
+            </h:column>
+            
+            <h:column >
+                <f:facet name="header">
+                    <h:outputText value="StartDate"/>
+                </f:facet> 
+                <h:outputText value="#{item.start_date}"></h:outputText>
+            </h:column>
+            <h:column>
+                <f:facet name="header">
+                    <h:outputText value="EndDate"/>
+                </f:facet> 
+                <h:outputText value="#{item.end_date}"></h:outputText>
+            </h:column>
+            
+            <h:column>
+                <f:facet name="header">
+                    <h:outputText value="Current City"/>
+                </f:facet> 
+              <b>  <h:outputText  value="#{item.current_city}" style="color:greenyellow"></h:outputText></b>
+            </h:column>
+<!--
+            <f:facet name="footer">
+                <h:outputText value="The End" />
+            </f:facet> 
+-->
+        </h:dataTable>
+         <script>
+           
+         function demoDisplay() {
+             document.getElementById("myP1").style.display = "block";
+           }
+           function hide(){
+             document.getElementById("myP1").style.display = "none";
+           }
+           function hideblock()
+           {
+               document.getElementById("Journey1").style.display = "none";
+
+           }
+            function hidetable() {
+             document.getElementById("example").style.display = "none";
+           }
+           
+           </script>
+        
+        
+         <script src='http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
+
+    </h:body>
+</html>

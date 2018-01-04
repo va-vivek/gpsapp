@@ -1,0 +1,128 @@
+<?xml version='1.0' encoding='UTF-8' ?>      
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html">
+    <h:head>     
+        <style>
+            body
+            {
+                background-image:url("wall.jpg");
+                background-size: 1366px 768px;
+                background-repeat: no-repeat;
+                color: white;
+
+            }
+
+
+            input[type=text], input[type=password] {
+                border:2px solid #456879;
+                border-radius:10px;
+                height: 30px;
+                width: 250px;
+                box-shadow: 0 0 5px 3px whitesmoke; 
+            }
+            input:focus {
+                border-color: black;
+            }
+
+            .button {
+                background-color:graytext;
+                color: white;
+                padding: 7px 5px;
+                margin: 8px 0;
+                border: none;
+                cursor: pointer;
+                width: 8%;
+                margin-left: 105px;
+                margin-top: 10px;
+                border-radius: 15px;
+
+            }
+
+
+
+            .button:hover {
+                opacity: 0.8;
+            }
+
+            .cancelbtn {
+                background-color: graytext;
+                color: white;
+                padding: 7px 5px;
+                margin: 8px 0;
+                border: none;
+                cursor: pointer;
+                width: 8%;
+                margin-left: 10px;
+                margin-top: 10px;
+                border-radius: 15px;
+
+            }
+
+            .cancelbtn:hover {
+                opacity: 0.8;
+            }
+
+            .imgcontainer {
+                text-align: center;
+                margin: 24px 0 12px 0;
+            }
+
+
+            .container {
+                padding: 120px;
+            }
+
+
+
+            /* Change styles for span and cancel button on extra small screens */
+            @media screen and (max-width: 300px) {
+
+                .cancelbtn {
+                    width: 100%;
+                }
+            }
+            img{
+                margin-left: 1150px;
+                margin-top: 10px;
+            }
+
+
+        </style>
+    </h:head>
+    <h:body>
+
+
+        <h:form >
+            <img src="resources/images/techm.png" style="width:160px;height:50px;" />
+            <div class="container">
+                <h2>Login here</h2>
+                <h:outputText value="Username" />&nbsp;&nbsp;
+                <h:inputText id="username" value="#{login.user}"></h:inputText>
+                <h:message for="username"></h:message>
+                <br /><br />
+
+                <h:outputText value="Password" />&nbsp;&nbsp;
+                <h:inputSecret id="password" value="#{login.pwd}"></h:inputSecret>
+                <h:message for="password"></h:message>
+
+                <br></br><br></br>
+
+                <h:commandButton action="#{login.validateUsernamePassword}" styleClass="button" 
+                                 value="Login"></h:commandButton>
+
+                <h:commandButton action="#{login.validateUsernamePassword}" styleClass="cancelbtn" 
+                                 value="Cancel"> </h:commandButton>
+
+                <br></br>           <br></br>
+
+                &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp; &nbsp;
+                <label>New User??</label>
+                <h:commandLink action="register.xhtml">  
+                    <h:outputText value="Register here"></h:outputText>  
+                </h:commandLink> 
+
+            </div>
+        </h:form>
+    </h:body>
+</html>

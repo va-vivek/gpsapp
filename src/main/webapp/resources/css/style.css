@@ -1,0 +1,336 @@
+          * {box-sizing: border-box}
+            body {font-family: "Lucida Sans Unicode", "Lucida Grande", sans-serif;
+                  background-image:url("images/wall.jpg");
+                  background-size: 1366px 768px;
+                  background-repeat: no-repeat;
+                  color: white;}
+
+            /* Style the tab */
+            div.tab {
+                float: left;            
+                width: 30%;
+                height: 300px;
+            }
+
+            /* Style the buttons inside the tab */
+            div.tab button {
+                font-family: "Lucida Sans Unicode", "Lucida Grande", sans-serif;
+                display: block;
+                background-color: transparent;
+                color: white;
+                padding: 22px 16px;
+                width: 50%;
+                border: none;
+                outline: none;
+                text-align: left;
+                cursor: pointer;
+                transition: 0.3s;
+                font-size: 17px;
+            }
+
+            /* Change background color of buttons on hover */
+            div.tab button:hover {
+                background-color: #566573;
+            }
+
+            /* Create an active/current "tab button" class */
+            div.tab button.active {
+                background-color: #566573;
+            }
+
+            /* Style the tab content */
+            .tabcontent {
+                display: none;
+                float: left;
+                padding: 0px 12px;
+                line-height: 300%;
+                width: 70%;
+                border-left: none;
+                height: 700px;
+            }
+
+
+
+            /* Full-width input fields */
+            input[type=text], input[type=password] {
+                border:2px solid #456879;
+                border-radius:10px;
+                height: 30px;
+                width: 300px;
+                box-shadow: 0 0 5px 3px whitesmoke; 
+            }
+
+            /* Set a style for all buttons */
+            button {
+
+                background-color: grey;
+                color: white;
+                padding: 7px 5px;
+                margin: 8px 0;
+                border: none;
+                cursor: pointer;
+                width: 8%;
+                margin-left: 105px;
+                margin-top: 10px;
+                border-radius: 15px;
+
+            }
+
+            /* Extra styles for the cancel button */
+            .cancelbtn {
+                padding: 14px 20px;
+                background-color: #000000;
+            }
+
+            /* Float cancel and signup buttons and add an equal width */
+            .cancelbtn,.signupbtn {
+                float: center;
+                width: 20%;
+            }
+
+            /* Add padding to container elements */
+            .container {
+                padding: 16px;
+                right: 30px;
+            }
+
+            /* Clear floats */
+            .clearfix::after {
+                content: "";
+                clear: both;
+                display: table;
+            }
+
+            /* Change styles for cancel button and signup button on extra small screens */
+            @media screen and (max-width: 300px) {
+                .cancelbtn, .signupbtn {
+                    width: 100%;
+                }
+            }
+            
+
+            ol.progtrckr {
+                margin: 0;
+                padding: 0;
+                
+            }
+
+            ol.progtrckr li {
+                display: inline-block;
+                text-align: center;
+                line-height: 3.5em;
+            }
+
+            ol.progtrckr[data-progtrckr-steps="2"] li { width: 49%; }
+            ol.progtrckr[data-progtrckr-steps="3"] li { width: 33%; }
+            ol.progtrckr[data-progtrckr-steps="4"] li { width: 24%; }
+            ol.progtrckr[data-progtrckr-steps="5"] li { width: 19%; }
+            ol.progtrckr[data-progtrckr-steps="6"] li { width: 16%; }
+            ol.progtrckr[data-progtrckr-steps="7"] li { width: 14%; }
+            ol.progtrckr[data-progtrckr-steps="8"] li { width: 12%; }
+            ol.progtrckr[data-progtrckr-steps="9"] li { width: 11%; }
+
+            ol.progtrckr li.progtrckr-done {
+                color: black;
+                border-bottom: 4px solid yellowgreen;
+            }
+            ol.progtrckr li.progtrckr-todo {
+                color: silver; 
+                border-bottom: 4px solid silver;
+            }
+
+            ol.progtrckr li:after {
+                content: "\00a0\00a0";
+            }
+            ol.progtrckr li:before {
+                position: relative;
+                bottom: -2.5em;
+                float: left;
+                left: 50%;
+                line-height: 1em;
+            }
+            ol.progtrckr li.progtrckr-done:before {
+                content: "\2713";
+                color: white;
+                background-color: yellowgreen;
+                height: 2.2em;
+                width: 2.2em;
+                line-height: 2.2em;
+                border: none;
+                border-radius: 2.2em;
+            }
+            ol.progtrckr li.progtrckr-todo:before {
+                content: "\039F";
+                color: silver;
+                background-color: white;
+                font-size: 2.2em;
+                bottom: -1.2em;
+            }
+            .button1 {
+
+
+                background-color: grey;
+                color: white;
+                padding: 7px 5px;
+                margin: 8px 0;
+                border: none;
+                cursor: pointer;
+                width: 10%;
+                margin-left: 105px;
+                margin-top: 10px;
+                border-radius: 15px;
+
+            }
+       #pos{
+      float: right;
+      position: relative;
+             top: 425px;  
+       right:90px;
+      }
+      h:selectOneMenu#drop{
+          border:2px solid #456879;
+                border-radius:10px;
+                height: 30px;
+                width: 250px;
+                box-shadow: 0 0 5px 3px whitesmoke; 
+      }
+      
+
+        		
+		      *, :before, :after {
+  box-sizing:  border-box;
+}
+
+.unstyled {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+.unstyled a {
+  text-decoration: none;
+}
+
+.list-inline {
+  overflow: hidden;
+}
+.list-inline li {
+  float: left;
+}
+
+.header {
+  position: fixed;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 17.5em;
+  background: black;
+  text-transform: capitalize;
+}
+
+.logo {
+  text-transform: capitalize;
+  font: 300 2em "Source Sans Pro", Helvetica, Arial, sans-serif;
+  text-align: center;
+  padding: 0;
+  margin: 0;
+}
+.logo a {
+  display: block;
+  padding: 1em 0;
+  color: #DFDBD9;
+  text-decoration: none;
+  transition: .15s linear color;
+}
+.logo a:hover {
+  color: #fff;
+}
+.logo a:hover span {
+  color: #DF4500;
+}
+.logo span {
+  font-weight: 700;
+  transition: .15s linear color;
+}
+
+.main-nav { /* menu border and background color */
+
+  background:  black;
+}
+.main-nav ul {
+  border-top: solid 1px #3C3735;
+}
+.main-nav li {
+  border-bottom: solid 1px #3C3735;
+}
+.main-nav a {
+  padding: 1.1em 0;
+  color: #DFDBD9;
+  font: 400 1.125em "Source Sans Pro", Helvetica, Arial, sans-serif;
+  text-align: center;
+  text-transform: capitalize;
+}
+.main-nav a:hover {
+  color: #fff;
+}
+
+
+.social-links {
+  border-bottom: solid 1px #3C3735;
+}
+.social-links li {
+  width: 25%;
+  border-left: solid 1px #3C3735;
+}
+.social-links li:first-child {
+  border: none;
+}
+.social-links a {
+  display: block;
+  height: 5.5em;
+  text-align: center;
+  color: #3C3735;
+  font: 0.75em/5.5em "Source Sans Pro", Helvetica, Arial, sans-serif;
+}
+.social-links a:hover {
+  color: #DFDBD9;
+}
+
+.list-hover-slide li {
+  position: relative;
+  overflow: hidden;
+}
+.list-hover-slide a {
+  display: block;
+  position: relative;
+  z-index: 1;
+  transition: .35s ease color;
+}
+.list-hover-slide a:before {
+  content: '';
+  display: block;
+  z-index: -1;
+  position: absolute;
+  left: -100%;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  border-right: solid 5px #DF4500;
+  background: #3C3735;
+  transition: .35s ease left;
+}
+.list-hover-slide a.is-current:before, .list-hover-slide a:hover:before {
+  left: 0;
+}
+	.left-div {
+	position: fixed;
+}
+.right-div {
+    margin-left: 401px;
+    height: 100%;
+}
+.right{
+    margin-left: 300px;
+}
+
+
+            

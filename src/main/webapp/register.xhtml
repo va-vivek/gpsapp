@@ -1,0 +1,147 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <h:head>
+        <title>Register</title>
+        <style>
+            body
+            {
+                background-image:url("wall.jpg");
+                background-size: 1366px 768px;
+                background-repeat: no-repeat;
+                color: white;
+
+            }
+
+
+            input[type=text], input[type=password] {
+                border:2px solid #456879;
+                border-radius:10px;
+                height: 30px;
+                width: 250px;
+                box-shadow: 0 0 5px 3px whitesmoke; 
+            }
+            input:focus {
+                border-color: black;
+            }
+
+            .button {
+
+
+                background-color: grey;
+                color: white;
+                padding: 7px 5px;
+                margin: 8px 0;
+                border: none;
+                cursor: pointer;
+                width: 30%;
+                margin-left: 45px;
+                margin-top: 10px;
+                border-radius: 15px;
+
+            }
+
+
+
+            .button:hover {
+                opacity: 0.8;
+            }
+            
+            .cancelbtn {
+                background-color: grey;
+                color: white;
+                padding: 7px 5px;
+                margin: 8px 0;
+                border: none;
+                cursor: pointer;
+                width: 30%;
+                margin-left: 25px;
+                margin-top: 10px;
+                border-radius: 15px;
+
+
+              
+            }
+
+
+            .cancelbtn:hover {
+                opacity: 0.8;
+            }
+
+            .imgcontainer {
+                text-align: center;
+                margin: 24px 0 12px 0;
+            }
+
+
+            .container {
+                padding: 60px;
+                line-height: 50px;
+            }
+
+
+            #pos{
+                float: right;
+                position: relative;
+                top: 425px;  
+                right:90px;
+            }
+
+            img{
+                margin-left: 1150px;
+                margin-top: 10px;
+            }
+
+            table {
+
+                margin-left: 300px;
+                margin-top: 1px;
+            }
+
+        </style>
+    </h:head>
+    <h:body>
+        <f:view>
+            <img src="resources/images/techm.png" style="width:160px;height:50px;"/>
+            <h:form>            
+                <div class="container">
+                    <table>
+                        <tr>
+                            <td><h2>Register here</h2></td>
+                            <td> <h:messages showDetail="true" /> </td>
+                        </tr>
+
+                        <tr>
+                            <td><h:outputText value="Enter Username : " /></td>
+                            <td><h:inputText value="#{user.uname}" /></td>
+                        </tr>
+                        <tr>
+                            <td><h:outputText value="Enter Name : " /></td>
+                            <td><h:inputText value="#{user.name}" /></td>
+                        </tr>
+                        <tr>
+                            <td><h:outputText value="Enter Password : "/></td>
+                            <td><h:inputSecret value="#{user.password}" /></td>
+                        </tr>
+                        <tr>
+                            <td><h:outputText value="Enter Email : "/></td>
+                            <td><h:inputText value="#{user.email}" /></td>
+                        </tr>
+                        <tr>
+                            <td><h:outputText value="Enter Phone : "/></td>
+                            <td><h:inputText value="#{user.phone}"/></td>
+                        </tr>  
+
+                        <tr>
+                            <td></td>
+                            <td><h:commandButton value="Register" action="#{user.add}" styleClass="button"></h:commandButton>
+                            <h:commandButton value="Cancel" action="login.xhtml" class="cancelbtn"></h:commandButton></td>
+                        </tr>
+                    </table>
+                </div>
+            </h:form>
+        </f:view>
+    </h:body>
+</html>

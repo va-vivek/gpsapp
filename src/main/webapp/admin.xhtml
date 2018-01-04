@@ -1,0 +1,327 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:pt="http://xmlns.jcp.org/jsf/passthrough">
+    <h:head>
+        <title>Facelet Title</title>
+       <link href='https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,700' rel='stylesheet' type='text/css'></link>
+       <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css"></link>
+       <script src="https://cdnjs.cloudflare.com/ajax/libs/prefixfree/1.0.7/prefixfree.min.js"></script>  
+    <style>
+           img{
+    margin-left: 390px;
+    margin-top: -40px;
+}
+
+        </style>
+    
+    </h:head>
+    
+    <h:body>
+        <h:outputStylesheet library="css" name="style.css"  />
+        <h:outputScript library="js" name="common.js" />
+        <div class="right">
+        <h:form>
+            <p>Welcome #{login.user}</p>
+            <h:commandLink action="#{login.logout}" value="Logout"></h:commandLink>
+        </h:form>
+            </div>
+        <img src="resources/images/techm.png" style="width:160px;height:50px;" align="right"/>
+
+         <header class="header" role="banner">
+             <h1 class="logo">
+                 <a href="#">Track <span>Vehicle</span></a>
+             </h1>
+                  <div class="nav-wrap">
+                  <nav class="main-nav" role="navigation">
+                            <ul class="unstyled list-hover-slide">
+                                   <li><a href="#" onclick="openCity(event, 'Register')">Vehicle register</a></li>
+                                   <li><a href="#" onclick="openCity(event, 'Route')">Add routes</a></li>
+                                   <li><a href="#" onclick="openCity(event, 'City')">City</a></li>
+                                   <li><a href="#" onclick="openCity(event, 'Journey')">Journey</a></li>
+                                   <li><a href="#" onclick="openCity(event, 'Journey1')">Track Vehicle</a></li>
+                            </ul>
+                  </nav>
+         </div>
+        </header>
+
+
+        <div id="Register" class="tabcontent">
+            <h:form>
+                
+                <div class="right-div">
+                    <h3>Register here</h3>
+                    <table>
+                        <tr>
+                            <td>
+                                <label><b>Vehicle no</b></label></td>
+                            <td><h:inputText value="#{vehicle.vehicle_no}" pt:placeholder="Enter Vehicle Number"/></td>
+                        </tr>
+                             
+
+                            <tr><td><label><b>Vehicle type&nbsp;&nbsp;</b></label></td>
+                            <td>    <h:selectOneMenu value = "#{vehicle.vehicle_type}" style="height:30px; width: 300px;">
+                                    <f:selectItem itemValue = "" itemLabel = "-------------------Select-----------------" /> 
+                                    <f:selectItem itemValue = "Car" itemLabel = "Car" /> 
+                                    <f:selectItem itemValue = "Truck" itemLabel = "Truck" />
+                                    <f:selectItem itemValue = "Bus" itemLabel = "Bus" /> 
+                                    <f:selectItem itemValue = "Bike" itemLabel = "Bike" />
+                                </h:selectOneMenu></td>
+                        </tr>
+                                
+                             
+                        <tr><td><label><b>Vehicle Brand</b></label></td>
+                            <td><h:inputText value="#{vehicle.vehicle_brand}" pt:placeholder="Enter Vehicle Brand"/></td>
+                        </tr>
+                        <tr><td>
+                                <label><b>Vehicle colour</b></label></td>
+                            <td><h:inputText value="#{vehicle.vehicle_colour}" pt:placeholder="Enter Vehicle Colour"/></td>
+                        </tr>
+                    </table>
+                    <div class="clearfix">
+                        <h:commandButton value="Submit" action="#{vehicle.add}" style="padding: 7px 5px; border-radius: 15px; margin: 8px 0;width: 30%;margin-left: 180px;
+                      margin-top: 50px;background-color: grey;color: white;border:none;cursor:pointer;"/>
+                    </div>
+                </div>
+            </h:form>
+        </div>
+
+        <div id="Route" class="tabcontent">
+            <h:form>
+               
+                <div class="right-div">
+                     <h3>Add route here</h3>
+                    <table>
+                        <tr>
+                            <td> <label><b>Route1&nbsp;&nbsp;</b></label></td>
+
+
+
+                            <td> <h:selectOneMenu value="#{route.route1}" style="height:30px; width: 300px;" >
+                                    <f:selectItem itemValue = "" itemLabel = "-------------------Select---------------" /> 
+                                    <f:selectItems value="#{city.allCities}"/>
+                                </h:selectOneMenu></td></tr>
+
+
+
+                        <tr><td><label><b>Route2&nbsp;&nbsp;</b></label></td>
+
+                            <td>  <h:selectOneMenu value="#{route.route2}" style="height:30px; width: 300px;">
+                                    <f:selectItem itemValue = "" itemLabel = "-------------------Select---------------" /> 
+                                    <f:selectItems value="#{city.allCities}"/>
+                                </h:selectOneMenu></td></tr>
+
+
+                        <tr><td>  <label><b>Route3&nbsp;&nbsp;</b></label></td>
+
+                            <td>
+                                <h:selectOneMenu value="#{route.route3}" style="height:30px; width: 300px;" >
+                                    <f:selectItem itemValue = "" itemLabel = "-----------------------Select---------------" /> 
+                                    <f:selectItems value="#{city.allCities}"/>
+                                </h:selectOneMenu>
+                            </td></tr>
+
+                        <tr><td>          <label><b>Route4&nbsp;&nbsp;</b></label></td>
+                            <td><h:selectOneMenu value="#{route.route4}" style="height:30px; width: 300px;">
+                                    <f:selectItem itemValue = "" itemLabel = "-------------------Select---------------" /> 
+                                    <f:selectItems value="#{city.allCities}"/>
+                                </h:selectOneMenu></td></tr>
+
+
+
+                        <tr><td><label><b>Total distance</b></label></td>
+                            <td><h:inputText value="#{route.total_distance}" pt:placeholder="Enter Total Distance"/></td></tr>
+
+
+                        <tr><td> <label><b>Flag&nbsp;&nbsp;</b></label></td>
+                            <td><h:selectOneMenu value = "#{route.flag}" style="height:30px; width: 300px;">
+                                    <f:selectItem itemValue = "" itemLabel = "-------------------Select---------------" /> 
+                                    <f:selectItem itemValue = "1" itemLabel = "1" /> 
+                                    <f:selectItem itemValue = "2" itemLabel = "2" />
+                                    <f:selectItem itemValue = "3" itemLabel = "3" /> 
+                                    <f:selectItem itemValue = "4" itemLabel = "4" />
+                                    <f:selectItem itemValue = "5" itemLabel = "5" /> 
+                                    <f:selectItem itemValue = "6" itemLabel = "6" />
+                                    <f:selectItem itemValue = "7" itemLabel = "7" /> 
+                                    <f:selectItem itemValue = "8" itemLabel = "8" />
+                                    <f:selectItem itemValue = "9" itemLabel = "9" /> 
+                                    <f:selectItem itemValue = "10" itemLabel = "10" />
+                                </h:selectOneMenu></td></tr>
+                    </table>
+                    <br></br>
+
+
+                    <div class="clearfix">
+                        <h:commandButton value="Add route" action="#{route.add}" style="padding: 7px 5px; border-radius: 15px; width: 30%;margin-left: 180px;
+                margin-top:0%;background-color: grey;color: white;border:none;cursor:pointer;"/>
+                    </div>
+                </div>
+            </h:form>
+        </div>
+
+        <div id="City" class="tabcontent">
+            <h:form>
+                <div class="right-div">
+                <table>
+                    <tr>  
+                        <td><label><b>Add City</b></label></td>
+                        <td><h:inputText value="#{city.cityname}" pt:placeholder="Enter City name"/></td>&nbsp;
+                        <td>
+                            <div class="clearfix">
+                                <h:commandButton value="Add city" action="#{city.add}" />
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><label><b>Current City List</b></label></td>      
+                        <td><h:selectOneMenu value="#{city.selectedCategory}" style="height:30px; width: 300px;">
+                                <f:selectItem itemValue = "" itemLabel = "-----------------------Select---------------" /> 
+                                <f:selectItems value="#{city.allCities}"/>
+                            </h:selectOneMenu></td>
+                        <td></td>
+                    </tr>
+                </table>             
+                    </div>
+            </h:form>  
+        </div>
+
+
+
+
+        <div id="Journey" class="tabcontent">
+            <h:form>
+                
+                <div class="right-div">
+                    <h3>Enter journey details here</h3>
+                    <table>
+                        <tr>
+                            <td>
+                                <label><b>Vehicle type</b></label></td>
+                            <td> <h:selectOneMenu value = "#{journey.vehicletype}" style="height:30px; width: 300px;">
+                                    <f:selectItem itemValue = "" itemLabel = "-------------------Select---------------" /> 
+                                    <f:selectItem itemValue = "Car" itemLabel = "Car" /> 
+                                    <f:selectItem itemValue = "Truck" itemLabel = "Truck" />
+                                    <f:selectItem itemValue = "Bus" itemLabel = "Bus" /> 
+                                    <f:selectItem itemValue = "Bike" itemLabel = "Bike" />
+                                </h:selectOneMenu>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <label><b>Vehicle Number</b></label></td>
+                            <td> 
+                                <h:selectOneMenu value="#{journey.vehicleno}" style="height:30px; width: 300px;">
+                                    <f:selectItem itemValue = "" itemLabel = "-------------------Select---------------" /> 
+                                    <f:selectItems value="#{vehicle.allVehicles}"/>
+                                </h:selectOneMenu>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <label><b>Route Id</b></label></td>
+                            <td>
+                                <h:selectOneMenu value="#{journey.routeid}" style="height:30px; width: 300px;">
+                                    <f:selectItem itemValue = "" itemLabel = "-------------------Select---------------" /> 
+                                    <f:selectItems value="#{route.allRoutes}"/>
+                                </h:selectOneMenu>
+                            </td>
+                        </tr>
+                        <tr>                <td><label><b>Total Distance Covered</b></label></td>
+                            <td><h:inputText value="#{journey.totaldistancecovered}" pt:placeholder="Enter Total Distance"/></td>
+                        </tr>
+                        <tr>
+                            <td><label><b>Flag</b></label></td>
+                            <td><h:selectOneMenu value = "#{journey.flag}" style="height:30px; width: 300px;">
+                                    <f:selectItem itemValue = "" itemLabel = "-------------------Select---------------" /> 
+                                    <f:selectItem itemValue = "1" itemLabel = "1" /> 
+                                    <f:selectItem itemValue = "2" itemLabel = "2" />
+                                    <f:selectItem itemValue = "3" itemLabel = "3" /> 
+                                    <f:selectItem itemValue = "4" itemLabel = "4" />
+                                    <f:selectItem itemValue = "5" itemLabel = "5" /> 
+                                    <f:selectItem itemValue = "6" itemLabel = "6" />
+                                    <f:selectItem itemValue = "7" itemLabel = "7" /> 
+                                    <f:selectItem itemValue = "8" itemLabel = "8" />
+                                    <f:selectItem itemValue = "9" itemLabel = "9" /> 
+                                    <f:selectItem itemValue = "10" itemLabel = "10" />
+                                </h:selectOneMenu>
+                            </td></tr>
+                        <tr>
+                            <td><label><b>Journey Status</b></label></td>
+                            <td><h:selectOneMenu value = "#{journey.journey_status}" style="height:30px; width: 300px;">
+                                    <f:selectItem itemValue = "" itemLabel = "-------------------Select---------------" /> 
+                                    <f:selectItem itemValue = "Open" itemLabel = "Open" /> 
+                                    <f:selectItem itemValue = "Transit" itemLabel = "Transit" />
+                                    <f:selectItem itemValue = "Closed" itemLabel = "Closed" /> 
+                                </h:selectOneMenu>
+                            </td>
+                        </tr>
+                        <tr>                <td><label><b>Start date</b></label></td>
+                            <td><h:inputText value="#{journey.startdate}" pt:placeholder="DD-MM-YYYY"/></td>
+                        </tr>
+                        <tr>                <td><label><b>End date</b></label></td>
+                            <td><h:inputText value="#{journey.enddate}" pt:placeholder="DD-MM-YYYY"/></td>
+                        </tr>
+                    </table>
+                    <br></br>
+                    <div class="clearfix">
+                        <h:commandButton value="Add Journey" action="#{journey.add}" style="padding: 7px 5px; border-radius: 15px; margin: 8px 0;width: 30%;margin-left: 250px;
+                margin-top: 1px;background-color: grey;color: white;border:none;cursor:pointer;"/>
+                    </div>
+                </div>
+            </h:form>
+        </div>
+        
+        <div id="Journey1" class="tabcontent">
+            <!--<h:form>
+                <h3>Tracking</h3>
+                  
+                <ol class="progtrckr" data-progtrckr-steps="5">
+                    <li class="progtrckr-done">Route1</li>
+                    <li class="progtrckr-done">Route2</li>
+                    <li class="progtrckr-done">Route3</li>
+                    <li class="progtrckr-todo">Route4</li> 
+                </ol>          
+            </h:form>-->
+            <center>
+                <h:form>
+
+                    <div class="right-div">
+                        <h3>Apply Filter</h3>
+                        <table>
+                            <tr>
+                                <td><label><b>Vehicle no</b></label></td>
+                                <td><h:inputText value="#{track_journey.vehicle_no}" pt:placeholder="Enter Vehicle No" /></td>
+                            </tr>
+                            <tr>
+                                <td><label><b>Journey Start</b></label></td>
+                                <td><h:inputText value="#{track_journey.start_date}" pt:placeholder="DD-MM-YYYY" /></td>
+                            </tr>
+                            <tr>
+                                <td><label><b>Journey End</b></label></td>
+                                <td><h:inputText value="#{track_journey.end_date}" pt:placeholder="DD-MM-YYYY" /></td>
+                            </tr>
+                        </table>
+
+                        <div class="clearfix">
+                            <h:commandButton value="Submit" action="#{track_journey.add()}" style="padding: 7px 5px; border-radius: 15px; margin: 8px 0;width: 30%;margin-left: 100px;
+                      margin-top: 50px;background-color: grey;color: white;border:none;cursor:pointer;"/>
+                        </div>
+                    </div>
+                </h:form> 
+            </center>
+
+        </div>
+
+        <script>
+        function myFunction() {
+      alert("Page for User!!");
+       }
+      </script>
+      <script src='http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
+
+    </h:body>
+</html>
